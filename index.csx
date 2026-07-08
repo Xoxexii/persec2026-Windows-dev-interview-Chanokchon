@@ -100,8 +100,29 @@ int FifthTest(int input)
 
 }
 
+List<int> SixthTest(List<int> input, int k)
+{
+    List<int> result = input.ToList();
+    if (input.Count <= 3 && k <= 3)
+    {
+        return input;
+    }
+    for (int i = 0; i < k-3; i++)
+    {
+        if (i + 2 >= result.Count)
+        {
+            break;
+        }
+        int sum = result[i..(i + 3)].Sum();
+        result.Add(sum);
+    }
+    return result;
+
+
+}
 // bool result = FirstTest("({})");
 // SecondTest(new string[] {"TH19", "SG20", "TH2"});
 // SecondTest(new string[] {"TH10", "TH3Netflix", "TH7", "TH1"});
 // Console.WriteLine(FifthTest(123456789));
 // Console.WriteLine(Autocomplete("th", new string[] {"Mother", "Think", "Worthy","Apple","Android"}, 2));
+// Console.WriteLine(string.Join(", ", SixthTest(new List<int> { 6, 3, 9 }, 6)));
